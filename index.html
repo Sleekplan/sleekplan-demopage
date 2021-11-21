@@ -263,6 +263,8 @@
 
             // clear interval
             window.clearInterval( _interval );
+            
+            window.setTimeout(function() {
 
             // on open feedback tool
             window.document.addEventListener('sleek:open', function() {
@@ -305,6 +307,8 @@
                 }
 
             }
+                
+            }, 500);
             
         }, 100);
 
