@@ -255,14 +255,14 @@
         /* ****************
         * On Document Ready
         **************** */
-        var interval = window.setInterval(function() {
+        var _interval = window.setInterval(function() {
             
             // check if Sleek SDK is ready
             if( typeof window.$sleek.open === "undefined" )
-                return false;
+                return true;
 
             // clear interval
-            window.clearInterval( interval );
+            window.clearInterval( _interval );
 
             // on open feedback tool
             window.document.addEventListener('sleek:open', function() {
@@ -306,7 +306,7 @@
 
             }
             
-        }, 500);
+        }, 100);
 
         /* ****************
         * Load Page
