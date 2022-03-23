@@ -118,19 +118,31 @@
         color: #40d9cc;
         text-transform: uppercase;
     }
+    .demo > .settings {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
     .demo > .settings a {
-        height: 40px;
+        flex: 0 0 40%;
+        height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 12px;
         text-decoration: none;
-        border-top: 1px solid #eee;
+        border: 1px solid #eee;
         font-weight: 500;
         color: #000;
         text-transform: uppercase;
         transition: ease all .4s;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 1);
+        box-sizing: border-box;
+        margin: 5px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
     }
     .demo > .settings a:hover {
         background: #FFFFFF;
@@ -146,6 +158,9 @@
         text-align: center;
         margin-top: 30px;
         margin-bottom: 15px;
+    }
+    .demo > .settings > div.title {
+        flex: 0 0 100%;
     }
     .demo > .settings > div.general {
         color: #00b3a4;
@@ -233,7 +248,7 @@
                 General
             </div>
             <a href="?type=page&data=" onclick="return load_page('')">
-                <span>Custom Start Screen</span>
+                <span>Start Screen</span>
             </a>
             <a href="?type=page&data=feedback" onclick="return load_page('feedback')">
                 <span>Feedback Board</span>
@@ -257,7 +272,7 @@
                 <span>Feedback</span>
             </a> 
             <a href="?type=popup&data=changelog" onclick="return load_popup('changelog')">
-                <span>Changelog Subscriber</span>
+                <span>Subscribe</span>
             </a> 
             <a href="?type=page&data=popup.update.2687" onclick="return load_page('popup.update.2687')">
                 <span>Announcements</span>
@@ -271,7 +286,7 @@
         </div>
     </div>
     <div class="demo-tiny">
-        <div data-tiny-changelog onclick="return load_tiny('changelog')">New Updates</div>
+        <div data-tiny-changelog>New Updates</div>
     </div>
     <div class="try">
         <img id="tryimage" src="assets/try.png">
