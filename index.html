@@ -170,6 +170,21 @@
     .try > img.hidden {
         opacity: 0;
     }
+    .demo-tiny {
+        position: fixed;
+        top: 100px;
+        left: auto;
+        bottom: auto;
+        right: 20px;
+    }
+    .demo-tiny > div {
+        border: 3px solid #40d9cc;
+        line-height: 30px;
+        border-radius: 5px;
+        padding: 0 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
     </style>
     <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DECHFVBJK4"></script>
@@ -255,8 +270,8 @@
             </a>
         </div>
     </div>
-    <div class="tiny-widget">
-        <div>New Updates</div>
+    <div class="demo-tiny">
+        <div data-tiny-changelog onclick="return load_tiny('changelog')">New Updates</div>
     </div>
     <div class="try">
         <img id="tryimage" src="assets/try.png">
@@ -342,6 +357,19 @@
 
             // load sleek SDK
             window.$sleek.showPopup(popup, false, 'test_' + popup, {force: true});
+
+            // prevent default
+            return false;
+
+        }
+        
+        /* ****************
+        * Load Tiny
+        **************** */
+        function load_tiny( page ) {
+
+            // load sleek SDK
+            window.$sleek.showTiny(page);
 
             // prevent default
             return false;
