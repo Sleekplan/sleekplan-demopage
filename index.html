@@ -294,6 +294,7 @@
     <script>
         // default variables
         window.demo_type = '';
+        window.demo_init = false;
 
         /* ****************
         * On Document Ready
@@ -361,9 +362,13 @@
         **************** */
         function load_page( page ) {
 
-            if( window.demo_type !== 'page' ) {
+            if( window.demo_type !== 'page' && window.demo_init !== false ) {
+                // close
                 window.$sleek.close( true );
             }
+
+            // set init
+            window.demo_init = true;
 
             // set type
             window.demo_type = 'page';
@@ -381,8 +386,13 @@
         **************** */
         function load_popup( popup ) {
 
-            // close
-            window.$sleek.close( true );
+            if( window.demo_init !== false ) {
+                // close
+                window.$sleek.close( true );
+            }
+
+            // set init
+            window.demo_init = true;
 
             // set type
             window.demo_type = 'popup';
@@ -400,8 +410,13 @@
         **************** */
         function load_tiny( page ) {
 
-            // close
-            window.$sleek.close( true );
+            if( window.demo_init !== false ) {
+                // close
+                window.$sleek.close( true );
+            }
+
+            // set init
+            window.demo_init = true;
 
             // set type
             window.demo_type = 'tiny';
