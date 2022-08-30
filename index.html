@@ -292,9 +292,13 @@
         <img id="tryimage" src="assets/try.png">
     </div>
     <script>
+        // default variables
+        window.demo_type = '';
+
         /* ****************
         * On Document Ready
         **************** */
+
         var _interval = window.setInterval(function() {
             
             // check if Sleek SDK is ready
@@ -356,6 +360,13 @@
         * Load Page
         **************** */
         function load_page( page ) {
+
+            if( window.demo_type !== 'page' ) {
+                $sleek.close( true );
+            }
+
+            // set type
+            window.demo_type = 'page';
             
             // load sleek SDK
             window.$sleek.open(page);
@@ -370,6 +381,12 @@
         **************** */
         function load_popup( popup ) {
 
+            // close
+            $sleek.close( true );
+
+            // set type
+            window.demo_type = 'popup';
+
             // load sleek SDK
             window.$sleek.showPopup(popup, false, 'test_' + popup, {force: true});
 
@@ -382,6 +399,12 @@
         * Load Tiny
         **************** */
         function load_tiny( page ) {
+
+            // close
+            $sleek.close( true );
+
+            // set type
+            window.demo_type = 'tiny';
 
             // load sleek SDK
             window.$sleek.showTiny(page);
