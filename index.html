@@ -364,7 +364,7 @@
         **************** */
         function load_page( page ) {
 
-            if( window.demo_type !== 'page' && window.demo_init !== false ) {
+            if( (window.demo_type !== 'page' || page.includes('popup.update')) && window.demo_init !== false ) {
                 // close
                 window.$sleek.close( true );
             }
