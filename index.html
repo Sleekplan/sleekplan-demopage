@@ -204,8 +204,26 @@
     }
 
     /* Loading */
+	.loading {
+		display: none;
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		z-index: 1000000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+	}
+	.loading.active {
+		display:block;
+	}
     .loader {
       	position: relative;
+		transform: scale(0.5);
     }
     .loader .dot {
       -webkit-animation-name: movement;
@@ -465,7 +483,7 @@
               animation-iteration-count: infinite;
       -webkit-animation-timing-function: ease;
               animation-timing-function: ease;
-      background: white;
+      background: #00b3a4;
       border-radius: 50%;
       content: "";
       display: block;
@@ -741,6 +759,8 @@
             if( (window.demo_type !== 'page' || page.includes('popup.update')) && window.demo_init !== false ) {
                 // close
                 window.$sleek.close( true );
+				// load
+				loading(true);
             }
 
             // set init
@@ -752,6 +772,8 @@
             setTimeout(() => {
                 // load sleek SDK
                 window.$sleek.open(page);
+				// done
+				loading(false);
             }, 800);
 
             // prevent default
@@ -767,6 +789,8 @@
             if( window.demo_init !== false ) {
                 // close
                 window.$sleek.close( true );
+				// load
+				loading(true);
             }
 
             // set init
@@ -778,6 +802,8 @@
             setTimeout(() => {
                 // load sleek SDK
                 window.$sleek.showPopup(popup, false, 'test_' + popup, {force: true});
+				// done
+				loading(false);
             }, 800);
 
             // prevent default
@@ -793,6 +819,8 @@
             if( window.demo_init !== false ) {
                 // close
                 window.$sleek.close( true );
+				// load
+				loading(true);
             }
 
             // set init
@@ -804,6 +832,8 @@
             setTimeout(() => {
                 // load sleek SDK
                 window.$sleek.showTiny(page);
+				// done
+				loading(false);
             }, 800);
 
             // prevent default
@@ -828,6 +858,21 @@
             return false;
 
         }
+
+		/* ****************
+        * Load Tool
+        **************** */
+        function loading( active = true ) {
+
+			var loading_elem = document.querySelector('.loading');
+
+			if( active === true ) {
+				loading_elem.classList.add('active');
+			} else if( active === false ) {
+				loading_elem.classList.remove('active');
+			}
+
+		}
     </script>
 </body>
 </html>
