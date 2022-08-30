@@ -362,7 +362,7 @@
         function load_page( page ) {
 
             if( window.demo_type !== 'page' ) {
-                $sleek.close( true );
+                window.$sleek.close( true );
             }
 
             // set type
@@ -382,7 +382,7 @@
         function load_popup( popup ) {
 
             // close
-            $sleek.close( true );
+            window.$sleek.close( true );
 
             // set type
             window.demo_type = 'popup';
@@ -401,7 +401,7 @@
         function load_tiny( page ) {
 
             // close
-            $sleek.close( true );
+            window.$sleek.close( true );
 
             // set type
             window.demo_type = 'tiny';
