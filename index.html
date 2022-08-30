@@ -397,8 +397,10 @@
             // set type
             window.demo_type = 'popup';
 
-            // load sleek SDK
-            window.$sleek.showPopup(popup, false, 'test_' + popup, {force: true});
+            setTimeout(() => {
+                // load sleek SDK
+                window.$sleek.showPopup(popup, false, 'test_' + popup, {force: true});
+            }, 500);
 
             // prevent default
             return false;
@@ -421,8 +423,10 @@
             // set type
             window.demo_type = 'tiny';
 
-            // load sleek SDK
-            window.$sleek.showTiny(page);
+            setTimeout(() => {
+                // load sleek SDK
+                window.$sleek.showTiny(page);
+            }, 500);
 
             // prevent default
             return false;
