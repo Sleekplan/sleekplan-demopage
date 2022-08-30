@@ -373,8 +373,10 @@
             // set type
             window.demo_type = 'page';
             
-            // load sleek SDK
-            window.$sleek.open(page);
+            setTimeout(() => {
+                // load sleek SDK
+                window.$sleek.open(page);
+            }, 800);
 
             // prevent default
             return false;
@@ -400,7 +402,7 @@
             setTimeout(() => {
                 // load sleek SDK
                 window.$sleek.showPopup(popup, false, 'test_' + popup, {force: true});
-            }, 500);
+            }, 800);
 
             // prevent default
             return false;
@@ -426,7 +428,7 @@
             setTimeout(() => {
                 // load sleek SDK
                 window.$sleek.showTiny(page);
-            }, 500);
+            }, 800);
 
             // prevent default
             return false;
